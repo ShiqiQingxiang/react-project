@@ -3,7 +3,8 @@ import { getPopularMovies } from "../api/tmdb-api";
 import PageTemplate from '../components/templatePopularMovieListPage';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
-import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
+import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
+import IconButton from "@mui/material/IconButton";
 
 const PopularMoviesPage = (props) => {
     
@@ -22,6 +23,11 @@ const PopularMoviesPage = (props) => {
     <PageTemplate
       title="Popular Movies"
       movies={movies}
+      action={(movie) => {
+        return <IconButton>
+          <PlaylistAddIcon color="primary" fontSize="large" />
+        </IconButton>
+      }}
     />
   );
 };

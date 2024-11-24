@@ -1,5 +1,5 @@
 import React from "react";
-import Movie from "../popularMovieCard";
+import Movie from "../popularMovieCard/";
 import Grid from "@mui/material/Grid2";
 
 const MovieList = (props) => {
