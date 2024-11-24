@@ -6,9 +6,9 @@ import CardMedia from "@mui/material/CardMedia";
 import CardHeader from "@mui/material/CardHeader";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import StarRateIcon from "@mui/icons-material/StarRate";
-import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Grid2";
 import img from '../../images/film-poster-placeholder.png'
 import { Link } from "react-router-dom";
@@ -17,9 +17,29 @@ import { useContext  } from "react";
 import { MoviesContext } from "../../contexts/moviesContext";
 
 export default function PopularMovieCard({ movie, action }) {
+  const { mustWatch, addToMustWatch } = useContext(MoviesContext);
+
+  if (mustWatch.find((id) => id === movie.id)) {
+    movie.mustWatch = true;
+  } else { 
+    movie.mustWatch = false
+  }
+
+  const handleAddToMustWatch = (e) => {
+    e.preventDefault();
+    addToMustWatch(movie);
+  }
+  
   return (
     <Card>
       <CardHeader
+        avatar={
+          movie.mustWatch ? (
+            <Avatar sx={{ backgroundColor: 'red' }}>
+              <PlaylistAddIcon />
+            </Avatar>
+          ) : null
+        }
         title={
           <Typography variant="h5" component="p">
             {movie.title}{" "}

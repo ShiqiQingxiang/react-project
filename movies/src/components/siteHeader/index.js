@@ -26,6 +26,7 @@ const SiteHeader = ({ history }) => {
   const menuOptions = [
     { label: "Home", path: "/" },
     { label: "Favorites", path: "/movies/favorites" },
+    { label: "MustWatch", path: "/movies/mustWatch" },
     { label: "Upcoming", path: "/movies/upcoming" },
     { label: "Popular", path: "/movies/popular" },
     { label: "Trending", path: "/movies/trending" },

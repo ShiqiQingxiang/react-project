@@ -3,7 +3,7 @@ import { getTrendingMovies } from "../api/tmdb-api";
 import PageTemplate from '../components/templateTrendingMovieListPage';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
-import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
+import AddToMustWatch from "../components/cardIcons/addToMustWatch";
 
 const TrendingMoviesPage = (props) => {
   const {  data, error, isLoading, isError }  = useQuery('TrendingMovies', getTrendingMovies)
@@ -18,6 +18,9 @@ const TrendingMoviesPage = (props) => {
     <PageTemplate
       title="Upcoming Movies"
       movies={movies}
+      action={(movie) => {
+        return <AddToMustWatch movie={movie} />
+      }}
     />
   );
 };
