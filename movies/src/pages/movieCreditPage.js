@@ -4,15 +4,23 @@ import MovieDetails from "../components/movieDetails/";
 import PageTemplate from "../components/templateMoviePage";
 import useMovie from "../hooks/useMovie";
 import { getMovie } from '../api/tmdb-api'
+import { getMovieCredits } from '../api/tmdb-api';
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner';
+import MovieCreditCard from "../components/movieCreditCard";
 // import useMovie from "../hooks/useMovie";   Redundant
 
-const MoviePage = (props) => {
+const MovieCreditPage = (props) => {
   const { id } = useParams();
-  const { data: movie, error, isLoading, isError } = useQuery(
+
+  const { data: movies} = useQuery(
     ["movie", { id: id }],
     getMovie
+  );
+
+  const { data: movie, error, isLoading, isError } = useQuery(
+    ["credit", { id: id }],
+    getMovieCredits
   );
 
   if (isLoading) {
@@ -27,15 +35,16 @@ const MoviePage = (props) => {
     <>
       {movie ? (
         <>
-          <PageTemplate movie={movie}>
-            <MovieDetails movie={movie} />
+          <PageTemplate movie={movies}>
+            <MovieCreditCard movie={movie} />
+        
           </PageTemplate>
         </>
       ) : (
-        <p>Waiting for movie details</p>
+        <p>Waiting for movie credits</p>
       )}
     </>
   );
 };
 
-export default MoviePage;
+export default MovieCreditPage;

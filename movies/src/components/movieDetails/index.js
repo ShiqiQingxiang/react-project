@@ -10,6 +10,8 @@ import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews"
+import { Link } from "react-router-dom";
+import Button from "@mui/material/Button";
 
 const root = {
     display: "flex",
@@ -70,6 +72,16 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
       ))}
         
       </Paper>
+      <Paper component="ul" sx={{...root}}>
+      <li>
+        <Link to={`/credit/${movie.id}`}>
+          <Button variant="outlined" size="medium" color="primary">
+            More Info of Casts
+          </Button>
+        </Link>
+      </li>
+      </Paper>
+
       <Fab
         color="secondary"
         variant="extended"
