@@ -16,7 +16,7 @@ const root = {
 };
 const chip = { margin: 0.5 };
 
-const castDetails = ({ person }) => {  // Don't miss this!
+const castDetails = ({ person, personCredit }) => {  // Don't miss this!
 
   return (
     <>
@@ -77,6 +77,19 @@ const castDetails = ({ person }) => {  // Don't miss this!
         <li>
           <Chip label={person.also_known_as} sx={{...chip}} />
         </li>
+      </Paper>
+      <Paper 
+        component="ul" 
+        sx={{...root}}
+      >
+        <li>
+          <Chip label="Movies" sx={{...chip}} color="primary" />
+        </li>
+        {personCredit.cast.map((g) => (
+          <li >
+            <Link to={`/movies/${g.id}`}><Chip label={g.title} sx={{...chip}} /></Link>
+          </li>
+        ))}
       </Paper>
       </>
   );

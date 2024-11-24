@@ -1,9 +1,6 @@
 import React from "react";
 import { useParams } from 'react-router-dom';
-import PageTemplate from "../components/templateMoviePage";
-import useMovie from "../hooks/useMovie";
-import { getMovie } from '../api/tmdb-api'
-import { getMovieCredits } from '../api/tmdb-api';
+import { getPersonCredits } from '../api/tmdb-api';
 import { getPerson } from '../api/tmdb-api';
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner';
@@ -19,6 +16,11 @@ const CastDetailsPage = (props) => {
     getPerson
   );
 
+  const { data: personCredit } = useQuery(
+    ["Person's credit", { id: id }],
+    getPersonCredits
+  );
+
   if (isLoading) {
     return <Spinner />;
   }
@@ -32,7 +34,7 @@ const CastDetailsPage = (props) => {
       {person ? (
         <>
           <TemplatePersonPage person={person}>
-            <CastDetails person={person} />
+            <CastDetails person={person} personCredit={personCredit} />
         
           </TemplatePersonPage>
         </>
