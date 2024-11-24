@@ -37,7 +37,7 @@ const MovieCreditCard = ({ movie }) => {  // Don't miss this!
         </li>
         {movie.cast.map((g) => (
           <li >
-            <Link to={`/actors/${g.id}`}><Chip label={g.name} sx={{...chip}} /></Link>
+            <Link to={`/person/${g.id}`}><Chip label={g.name} sx={{...chip}} /></Link>
           </li>
         ))}
       </Paper>
