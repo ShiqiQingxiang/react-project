@@ -1,7 +1,23 @@
+# Assignment 1 - ReactJS app.
 
-## Installation and Running
+Name: [Qingxiang Shiqi]
 
-1. Clone the repository to your local machine:
+## Overview
+
+This is a movie enthusiast application where users can view movie details, cast and crew information, actor details, movie reviews, and add movies to their favorites or must-watch lists.
+
+### Features
+
++ Display movie details
++ Display cast and crew information
++ Add and remove must-watch movies, and review functionality
++ Add filters similar to the main page on new dynamic pages for searching and filtering
++ Forward and backward controls work on all pages
++ Actor information page and movie information page can link to each other
+
+## Setup requirements
+
+1. Clone this repository to your local machine:
     ```sh
     git clone <repository-url>
     ```
@@ -21,43 +37,23 @@
     npm start
     ```
 
-## Features
+## API endpoints
 
-- Display movie details
-- Display movie cast information
-- Display movie reviews
-- Add and remove favorite movies
-- Add and remove must-watch movies
-- Write movie reviews
++ https://api.themoviedb.org/3/movie/popular - Popular movies
++ https://api.themoviedb.org/3/trending/movie/day - Trending movies
 
-## Main Tech Stack
+## Routing
 
-- React
-- Material-UI
-- React Router
-- React Query
++ /credit/movie_id - Displays movie cast and crew page
++ /recommendation/movie_id - Displays recommendation information page
++ /person/person_id - Displays actor information page
++ /movies/popular - Popular movies
++ /movies/trending - Trending movies
++ /movies/mustWatch - Must-watch movies
 
-## File Descriptions
+## Independent learning (If relevant)
 
-- `src/api/tmdb-api.js`: Interactions with the TMDB API
-- `src/components/movieDetails/index.js`: Movie details component
-- `src/components/cardIcons/addToFavorites.js`: Icon component for adding to favorites
-- `src/components/cardIcons/removeFromFavorites.js`: Icon component for removing from favorites
-- `src/components/cardIcons/addToMustWatch.js`: Icon component for adding to must-watch
-- `src/components/cardIcons/removeFromMustWatch.js`: Icon component for removing from must-watch
-- `src/components/cardIcons/writeReview.js`: Icon component for writing a review
-- `src/components/reviewForm/index.js`: Review form component
-- `src/contexts/moviesContext.js`: Movie context management
-- `src/hooks/useMovie.js`: Custom hook for fetching movie data
-- `src/pages/homePage.js`: Home page component
-- `src/pages/movieDetailsPage.js`: Movie details page component
-- `src/pages/favoriteMoviesPage.js`: Favorite movies page component
-- `src/pages/mustWatchMoviesPage.js`: Must-watch movies page component
-- `src/pages/upcomingMoviesPage.js`: Upcoming movies page component
-- `src/pages/popularMoviesPage.js`: Popular movies page component
-- `src/pages/trendingMoviesPage.js`: Trending movies page component
-- `src/pages/movieReviewPage.js`: Movie review page component
-- `src/pages/addMovieReviewPage.js`: Add movie review page component
-- `src/pages/castDetailsPage.js`: Cast details page component
-- `src/pages/movieRecommendationPage.js`: Movie recommendation page component
+In this project, I independently researched and adopted the following technologies/techniques:
 
++ Using `react-router-dom` for routing management
++ Using `@mui/material` for UI component development
