@@ -14,6 +14,7 @@ This is a movie enthusiast application where users can view movie details, cast 
 + Add filters similar to the main page on new dynamic pages for searching and filtering
 + Forward and backward controls work on all pages
 + Actor information page and movie information page can link to each other
++ Caching with react-query is done on all parameterised endpoints and statioc endpoints
 
 ## Setup requirements
 
